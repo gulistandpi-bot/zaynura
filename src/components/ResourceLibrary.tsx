@@ -103,7 +103,11 @@ const resources = [
     links: [
       { label: "Bolajon Kutubxonasi", url: "https://play.google.com/store/apps/details?id=dev.mobile.books" },
       { label: "Mantiqiy o'yinlar (BrainRage)", url: "https://play.google.com/store/apps/details?id=com.joongly.brainrage" },
-      { label: "Mantiqiy Savollar", url: "https://play.google.com/store/apps/details?id=uz.yoqub.mantiq" }
+      { label: "Mantiqiy Savollar", url: "https://play.google.com/store/apps/details?id=uz.yoqub.mantiq" },
+      { label: "Hangman (So'z topish)", url: "https://play.google.com/store/apps/details?id=com.androidcss.hangman" },
+      { label: "Numbers 123 (Raqamlar)", url: "https://play.google.com/store/apps/details?id=com.rvappstudios.numbers123.toddler.counting.tracing" },
+      { label: "Bimiboo Numbers", url: "https://play.google.com/store/apps/details?id=com.bimiboo.numbers" },
+      { label: "So'z o'yini (Uzbek)", url: "https://play.google.com/store/apps/details?id=com.wordgame.uz" }
     ]
   }
 ];
