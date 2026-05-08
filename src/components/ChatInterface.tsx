@@ -187,59 +187,62 @@ Qaysi yo'nalishdan boshlaymiz?
   }, [initialPrompt]);
 
   return (
-    <div className="flex flex-col h-[calc(100vh-64px)] max-w-4xl mx-auto bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden mt-8 mb-8">
-      <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-indigo-100">
-            <Sparkles size={20} />
+    <div className="flex flex-col h-[calc(100vh-120px)] max-w-5xl mx-auto kid-card overflow-hidden mt-8 mb-8 border-4">
+      <div className="p-8 border-b-4 border-slate-50 flex items-center justify-between bg-white">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 bg-gradient-to-br from-fun-blue to-fun-purple rounded-3xl flex items-center justify-center text-white shadow-xl rotate-3">
+            <Sparkles size={28} />
           </div>
           <div>
-            <h2 className="font-bold text-slate-800">RaqamliPed AI</h2>
-            <p className="text-xs text-indigo-600 font-medium">Platforma yordamchisi • Online</p>
+            <h2 className="text-xl font-black text-slate-800">RaqamliPed AI</h2>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-fun-green rounded-full animate-pulse"></div>
+              <p className="text-xs text-fun-blue font-bold uppercase tracking-wider">Online Yordamchi</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 space-y-6">
+      <div className="flex-1 overflow-y-auto p-8 space-y-8 bg-slate-50/30">
         {messages.map((msg, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: msg.role === 'user' ? 20 : -20 }}
+            animate={{ opacity: 1, x: 0 }}
             className={cn(
               "flex gap-4 max-w-[85%]",
               msg.role === 'user' ? "ml-auto flex-row-reverse" : "mr-auto"
             )}
           >
             <div className={cn(
-              "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-1",
-              msg.role === 'user' ? "bg-slate-200 text-slate-600" : "bg-indigo-100 text-indigo-600"
+              "w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1 shadow-sm",
+              msg.role === 'user' ? "bg-accent text-slate-700" : "bg-white text-fun-blue border-2 border-slate-100"
             )}>
-              {msg.role === 'user' ? <User size={16} /> : <Bot size={16} />}
+              {msg.role === 'user' ? <User size={20} /> : <Bot size={20} />}
             </div>
             <div className={cn(
-              "p-4 rounded-2xl text-sm leading-relaxed",
+              "p-6 rounded-[2rem] text-sm font-medium leading-relaxed shadow-sm",
               msg.role === 'user' 
-                ? "bg-indigo-600 text-white rounded-tr-none" 
-                : "bg-slate-100 text-slate-800 rounded-tl-none"
+                ? "bg-fun-blue text-white rounded-tr-none" 
+                : "bg-white text-slate-800 rounded-tl-none border-2 border-slate-50"
             )}>
-              {msg.content}
+              <div className="whitespace-pre-wrap">{msg.content}</div>
             </div>
           </motion.div>
         ))}
         {isLoading && (
           <div className="flex gap-4 max-w-[85%]">
-            <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0">
-              <Bot size={16} />
+            <div className="w-10 h-10 rounded-2xl bg-white border-2 border-slate-100 text-fun-blue flex items-center justify-center flex-shrink-0">
+              <Bot size={20} />
             </div>
-            <div className="bg-slate-100 p-4 rounded-2xl rounded-tl-none">
-              <div className="flex gap-1">
+            <div className="bg-white border-2 border-slate-50 p-6 rounded-[2rem] rounded-tl-none shadow-sm">
+              <div className="flex gap-1.5">
                 {[0, 1, 2].map(i => (
                   <motion.div
                     key={i}
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ repeat: Infinity, duration: 0.6, delay: i * 0.1 }}
-                    className="w-1.5 h-1.5 bg-indigo-400 rounded-full"
+                    animate={{ y: [0, -8, 0], scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 0.8, delay: i * 0.15 }}
+                    className="w-2.5 h-2.5 bg-fun-blue/30 rounded-full"
                   />
                 ))}
               </div>
@@ -249,26 +252,26 @@ Qaysi yo'nalishdan boshlaymiz?
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-6 border-t border-slate-100 bg-white">
-        <div className="relative flex items-center">
+      <div className="p-8 border-t-4 border-slate-50 bg-white">
+        <div className="relative flex items-center gap-4">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="Savolingizni yozing (masalan: 2-sinf matematika darsi uchun o'yinli test)..."
-            className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 pr-16 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all text-sm"
+            placeholder="Savolingizni yozing..."
+            className="flex-1 bg-slate-50 border-4 border-slate-100 rounded-[2.5rem] px-8 py-5 pr-20 focus:outline-none focus:border-fun-blue/30 focus:bg-white transition-all text-sm font-bold"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || isLoading}
-            className="absolute right-2 p-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute right-3 p-4 bg-primary hover:bg-primary/90 text-white rounded-[2rem] shadow-lg shadow-primary/20 transition-all active:scale-90 disabled:opacity-30"
           >
-            <Send size={18} />
+            <Send size={24} />
           </button>
         </div>
-        <p className="text-[10px] text-center text-slate-400 mt-4 uppercase tracking-widest font-semibold flex items-center justify-center gap-1">
-          <AlertCircle size={10} /> AI xato qilishi mumkin. Muhim ma'lumotlarni tekshiring.
+        <p className="text-[10px] text-center text-slate-400 mt-6 uppercase tracking-widest font-black flex items-center justify-center gap-2">
+          🌈 AI xato qilishi mumkin. Muhim ma'lumotlarni tekshiring. 🌈
         </p>
       </div>
     </div>
