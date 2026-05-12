@@ -10,7 +10,17 @@ const resources = [
     icon: Layout,
     color: "text-blue-600",
     bg: "bg-blue-50",
-    prompt: "Boshlang'ich sinf uchun Canva yoki PowerPointda interaktiv taqdimot yaratish bo'yicha maslahatlar bering."
+    linkTitle: "Interaktiv darslik va taqdimotlar:",
+    prompt: "Boshlang'ich sinf uchun Canva yoki PowerPointda interaktiv taqdimot yaratish bo'yicha maslahatlar bering. Quyidagi video darslardan namuna oling:\n- https://youtube.com/playlist?list=PLEWaq1K-zh8KrYj4RVOUqVtc03xuJljgw&si=JepmpYZf1_ZWR6SP\n- https://youtube.com/shorts/KbDiucCuerM?si=bgInfnCnKgL5UPWL\n- https://youtube.com/shorts/WKU-znctghY?si=r2KssuLMH-Pmybut",
+    links: [
+      { label: "Interaktiv darslik lavhasi 1", url: "https://youtube.com/shorts/KbDiucCuerM?si=bgInfnCnKgL5UPWL" },
+      { label: "Interaktiv darslik lavhasi 2", url: "https://youtube.com/shorts/WKU-znctghY?si=r2KssuLMH-Pmybut" },
+      { label: "Interaktiv darslik lavhasi 3", url: "https://youtube.com/shorts/K-XmwpvqRvs?si=lbWTTWVTfDnb_PoV" },
+      { label: "Interaktiv darslik lavhasi 4", url: "https://youtube.com/shorts/J6qHeX-nOoE?si=GUchblqhOvYYfwH6" },
+      { label: "Interaktiv darslik lavhasi 5", url: "https://youtube.com/shorts/xa9miFjnf1A?si=LlP-06MfTd_MR6TH" },
+      { label: "Interaktiv darslik lavhasi 6", url: "https://youtube.com/shorts/P2KzFSuuZhU?si=Hga94X0rBrSIFIuj" },
+      { label: "Taqdimotlar to'plami (Pleylist)", url: "https://youtube.com/playlist?list=PLEWaq1K-zh8KrYj4RVOUqVtc03xuJljgw&si=JepmpYZf1_ZWR6SP" }
+    ]
   },
   {
     title: "O'yinli Test (Wordwall)",
